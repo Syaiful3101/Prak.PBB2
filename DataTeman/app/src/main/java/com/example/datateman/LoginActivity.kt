@@ -42,6 +42,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             if (resultCode == Activity.RESULT_OK) {
                 val user = FirebaseAuth.getInstance().currentUser
                 Toast.makeText(this, "Login Berhasil", Toast.LENGTH_SHORT).show()
+                val intent = Intent(applicationContext, MainActivity::class.java)
                 startActivity(intent)
                 finish()
             } else {

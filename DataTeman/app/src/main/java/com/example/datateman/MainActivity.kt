@@ -82,7 +82,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         }
                     })
             }
-            R.id.showData -> {}
+            R.id.showData -> {
+                startActivity(Intent(this@MainActivity, MyListData::class.java))
+            }
         }
     }
 }

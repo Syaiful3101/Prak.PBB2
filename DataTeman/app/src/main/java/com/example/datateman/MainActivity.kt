@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(p0: View?) {
         when (p0?.getId()){
-            R.id.save -> {
+            R.id.save -> { // Statement program untuk simpan data
                 // mendapatkan userid dari pengguna yang terauthentikasi
                 val getUserID = auth!!.currentUser!!.uid
                 // mendapatkan instance dari database
@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         }
                 }
             }
-            R.id.logout -> {
+            R.id.logout -> { // Statement program untuk logout/keluar
                 AuthUI.getInstance().signOut(this)
                     .addOnCompleteListener(object  : OnCompleteListener<Void> {
                         override fun onComplete(p0: Task<Void>){

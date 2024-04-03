@@ -46,6 +46,7 @@ class MyListData : AppCompatActivity() {
             .addValueEventListener(object : ValueEventListener{
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     if (dataSnapshot.exists()) {
+                        dataTeman.clear()
                         for (snapshot in dataSnapshot.children){
                             val teman = snapshot.getValue(data_teman::class.java)
                             teman?.key = snapshot.key
@@ -74,4 +75,20 @@ class MyListData : AppCompatActivity() {
         itemDecoration.setDrawable(ContextCompat.getDrawable(applicationContext, R.drawable.line)!!)
         recyclerView?.addItemDecoration(itemDecoration)
     }
+//
+//    private fun () {
+//        override fun onDeleteData(data: data_teman?, position: Int) {
+//            val getUserID: String = auth?.getCurrentUser()?.getUid().toString()
+//            val getReference = database.getReference()
+//            if (getReference != null) {
+//                getReference.child("Admin").child(getUserID).child("DataTeman").child(data?.key.toString())
+//                    .removeValue()
+//                    .addOnSuccessListener{
+//                        Toast.makeText(this@MyListData, "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
+//                    }
+//            } else {
+//                Toast.makeText(this@MyListData, "Referance Kosong", Toast.LENGTH_SHORT).show();
+//            }
+//        }
+//    }
 }

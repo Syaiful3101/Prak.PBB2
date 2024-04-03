@@ -12,13 +12,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.view.menu.MenuView.ItemView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import java.math.MathContext
 
-class RecyclerViewAdapter(private val dataTeman: ArrayList<data_teman>, context: Context) :
-    RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
+class RecyclerViewAdapter(
+    private val dataTeman: ArrayList<data_teman>, context: Context) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
     private val context: Context
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val Nama: TextView
         val Alamat: TextView
@@ -66,7 +70,7 @@ class RecyclerViewAdapter(private val dataTeman: ArrayList<data_teman>, context:
                                 context.startActivity(intent)
                             }
                             1 -> {
-//                                listener?.onDeleteData(dataTeman.get(position), position)
+                                listener?.onDeleteData(dataTeman.get(position), position)
                             }
                         }
                     })
@@ -83,13 +87,13 @@ class RecyclerViewAdapter(private val dataTeman: ArrayList<data_teman>, context:
         return dataTeman.size
     }
 
-//    interface dataListener {
-//        fun onDeleteData(data: data_teman?, position: Int)
-//    }
-//
-//    val listener: dataListener? = null
+    interface dataListener {
+        fun onDeleteData(data: data_teman?, position: Int)
+    }
+
+    var listener: dataListener? = null
     init {
         this.context = context
-//        this.listener = context as MyListData
+        this.listener = context as MyListData
     }
 }

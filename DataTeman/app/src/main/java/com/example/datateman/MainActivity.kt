@@ -57,7 +57,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 // mengecek apakah ada data yang kosong
                 if (isEmpty(getNama) || isEmpty(getAlamat) || isEmpty(getNoHP)){
                     // jika ada, maka akan menmpilkan pesan singkat seperti berikut ini
-                    Toast.makeText(this@MainActivity, "Data tidak boleh ada yang kosong", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MainActivity, "Data tidak boleh ada yang kosong",
+                        Toast.LENGTH_SHORT).show()
                 } else {
                     // jika tidak ada, maka menyimpan ke database sesuai id masing masing akun
                     getReference.child("Admin").child(getUserID).child("DataTeman").push()
@@ -67,7 +68,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                             binding.nama.setText("")
                             binding.alamat.setText("")
                             binding.noHp.setText("")
-                            Toast.makeText(this@MainActivity, "Data tersimpan", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@MainActivity, "Data tersimpan",
+                                Toast.LENGTH_SHORT).show()
                         }
                 }
             }
@@ -75,7 +77,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 AuthUI.getInstance().signOut(this)
                     .addOnCompleteListener(object  : OnCompleteListener<Void> {
                         override fun onComplete(p0: Task<Void>){
-                            Toast.makeText(this@MainActivity, "Logout Berhasil", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@MainActivity, "Logout Berhasil",
+                                Toast.LENGTH_SHORT).show()
                             intent = Intent(applicationContext, LoginActivity::class.java)
                             startActivity(intent)
                             finish()

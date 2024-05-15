@@ -2,7 +2,6 @@ package com.example.datateman
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.app.LauncherActivity.ListItem
 import android.view.LayoutInflater
 import android.content.Context
 import android.content.DialogInterface
@@ -12,15 +11,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.view.menu.MenuView.ItemView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
-import java.math.MathContext
 
 class RecyclerViewAdapter(
-    private val dataTeman: ArrayList<data_teman>, context: Context) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
+    private val dataTeman: ArrayList<data_teman>, context: Context) :
+    RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
     private val context: Context
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){

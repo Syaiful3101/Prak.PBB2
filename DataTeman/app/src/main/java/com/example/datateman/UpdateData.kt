@@ -36,7 +36,8 @@ class UpdateData : AppCompatActivity() {
                 cekNoHP = binding.newNoHp.getText().toString()
                 //Mengecek agar tidak ada data yang kosong, saat proses update
                 if (isEmpty(cekNama!!) || isEmpty(cekAlamat!!) || isEmpty(cekNoHP!!)) {
-                    Toast.makeText(this@UpdateData, "Data tidak boleh ada yang kosong", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@UpdateData, "Data tidak boleh ada yang kosong",
+                        Toast.LENGTH_SHORT).show()
                 } else {
                     /*Menjalankan proses update data.
                     Method Setter digunakan untuk mendapakan data baru yang diinputkan
@@ -54,7 +55,6 @@ class UpdateData : AppCompatActivity() {
     private fun isEmpty(s: String): Boolean {
         return TextUtils.isEmpty(s)
     }
-
     //Menampilkan data yang akan di update
     private val data: Unit
         private get() {
@@ -70,13 +70,15 @@ class UpdateData : AppCompatActivity() {
     private fun updateTeman(teman: data_teman) {
         val userID = auth!!.uid
         val getKey = intent.extras!!.getString("getPrimaryKey")
-        database!!.child("Admin").child(userID!!).child("DataTeman").child(getKey!!)
+        database!!.child("Admin").child(userID!!).child("DataTeman")
+            .child(getKey!!)
             .setValue(teman)
             .addOnSuccessListener {
                 binding.newNama!!.setText("")
                 binding.newAlamat!!.setText("")
                 binding.newNoHp!!.setText("")
-                Toast.makeText(this@UpdateData, "Data Berhasil diubah", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@UpdateData, "Data Berhasil diubah",
+                    Toast.LENGTH_SHORT).show()
                 finish()
             }
     }

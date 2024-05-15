@@ -55,7 +55,8 @@ class MyListData : AppCompatActivity(), RecyclerViewAdapter.dataListener {
                         adapter = RecyclerViewAdapter(dataTeman, this@MyListData)
                         recyclerView?.adapter = adapter
                         (adapter as RecyclerViewAdapter).notifyDataSetChanged()
-                        Toast.makeText(applicationContext, "Data berhasil dimuat", Toast.LENGTH_LONG).show()
+                        Toast.makeText(applicationContext, "Data berhasil dimuat",
+                            Toast.LENGTH_LONG).show()
                     }
                 }
 
@@ -80,13 +81,16 @@ class MyListData : AppCompatActivity(), RecyclerViewAdapter.dataListener {
         val getUserID: String = auth?.getCurrentUser()?.getUid().toString()
         val getReference = database.getReference()
         if (getReference != null) {
-            getReference.child("Admin").child(getUserID).child("DataTeman").child(data?.key.toString())
+            getReference.child("Admin").child(getUserID).child("DataTeman")
+                .child(data?.key.toString())
                 .removeValue()
                 .addOnSuccessListener{
-                    Toast.makeText(this@MyListData, "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this@MyListData, "Data berhasil dihapus",
+                        Toast.LENGTH_SHORT).show();
                 }
         } else {
-            Toast.makeText(this@MyListData, "Referance Kosong", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this@MyListData, "Referance Kosong",
+                Toast.LENGTH_SHORT).show();
         }
     }
 }

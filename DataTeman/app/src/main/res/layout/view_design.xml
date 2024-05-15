@@ -6,6 +6,7 @@
     android:background="#ffffff"
     android:gravity="center"
     android:id="@+id/list_item">
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -43,4 +44,5 @@
             android:textSize="15dp"
             android:textStyle="bold"/>
     </LinearLayout>
+
 </LinearLayout>

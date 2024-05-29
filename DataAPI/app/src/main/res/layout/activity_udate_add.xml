@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".UdateAddActivity">
+    tools:context=".UpdateAddActivity">
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,6 +28,6 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/etBtnAction"
+        android:id="@+id/btnAction"
         android:text="Tambah" />
 </LinearLayout>
